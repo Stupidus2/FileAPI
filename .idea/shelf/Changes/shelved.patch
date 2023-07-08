@@ -1,0 +1,22 @@
+Index: src/main/java/net/stupidus/fileapi/FileAPI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package net.stupidus.fileapi;\r\n\r\nimport org.bukkit.configuration.file.YamlConfiguration;\r\nimport org.bukkit.plugin.Plugin;\r\n\r\nimport java.io.File;\r\nimport java.io.InputStreamReader;\r\nimport java.io.PrintWriter;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.util.HashMap;\r\n\r\npublic class FileAPI {\r\n\r\n    private File file;\r\n    private YamlConfiguration yaml;\r\n\r\n    public FileAPI(String fileName, Plugin plugin) {\r\n        try {\r\n            File tempDir = new File(plugin.getDataFolder().getAbsolutePath());\r\n            if(!tempDir.exists()) {\r\n                tempDir.mkdirs();\r\n            }\r\n            file = new File(plugin.getDataFolder().getAbsolutePath() + \"/\" + fileName);\r\n            if(!file.exists()) {\r\n                file.createNewFile();\r\n            }\r\n\r\n            yaml = YamlConfiguration.loadConfiguration(new InputStreamReader(java.nio.file.Files.newInputStream(file.toPath()), StandardCharsets.UTF_8));\r\n        } catch(Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public Object read(String location) {\r\n        return yaml.get(location);\r\n    }\r\n    public HashMap<String, Object> read() {\r\n        HashMap<String, Object> content = new HashMap<>();\r\n        for(String location : yaml.getKeys(false)) {\r\n            content.put(location, yaml.get(location));\r\n        }\r\n        return content;\r\n    }\r\n\r\n    public void write(String location, Object content) {\r\n        try {\r\n            yaml.set(location, content);\r\n            yaml.save(file);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    public void clear() {\r\n        try {\r\n            PrintWriter writer = new PrintWriter(file);\r\n            writer.print(\"\");\r\n            writer.close();\r\n\r\n        }catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n    public void remove(String location) {\r\n        this.write(location, (Object)null);\r\n    }\r\n    public void delete() {\r\n        file.delete();\r\n    }\r\n    public String getName() {\r\n        return file.getName();\r\n    }\r\n    public String getPath() {\r\n        return file.getPath();\r\n    }\r\n    public File getFile() {\r\n        return file;\r\n    }\r\n    public String getParent() {\r\n        return file.getParent();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/stupidus/fileapi/FileAPI.java b/src/main/java/net/stupidus/fileapi/FileAPI.java
+--- a/src/main/java/net/stupidus/fileapi/FileAPI.java	(revision 03ec1456c20ec657c8988a14b1ad0ed711ed2c51)
++++ b/src/main/java/net/stupidus/fileapi/FileAPI.java	(date 1688790373757)
+@@ -14,9 +14,9 @@
+     private File file;
+     private YamlConfiguration yaml;
+ 
+-    public FileAPI(String fileName, Plugin plugin) {
++    public FileAPI(String fileName, Plugin plugin, String folder) {
+         try {
+-            File tempDir = new File(plugin.getDataFolder().getAbsolutePath());
++            File tempDir = new File(plugin.getDataFolder().getAbsolutePath()+ "/" + folder);
+             if(!tempDir.exists()) {
+                 tempDir.mkdirs();
+             }
