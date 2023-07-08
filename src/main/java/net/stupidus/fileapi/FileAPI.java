@@ -20,7 +20,7 @@ public class FileAPI {
             if(!tempDir.exists()) {
                 tempDir.mkdirs();
             }
-            file = new File(plugin.getDataFolder().getAbsolutePath() + "/" + fileName);
+            file = new File(plugin.getDataFolder().getAbsolutePath());
             if(!file.exists()) {
                 file.createNewFile();
             }
