@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7456dba-acd8-4089-90a8-08d72070cc7c" name="Changes" comment="In this project has nothing changed">
-      <change beforePath="$PROJECT_DIR$/target/FileAPI-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/FileAPI-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/stupidus/fileapi/FileAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/stupidus/fileapi/FileAPI.class" afterDir="false" />
-    </list>
+    <list default="true" id="f7456dba-acd8-4089-90a8-08d72070cc7c" name="Changes" comment="In this project has nothing changed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688918485446</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="In this project has nothing changed">
+      <created>1688918641526</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688918641526</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
