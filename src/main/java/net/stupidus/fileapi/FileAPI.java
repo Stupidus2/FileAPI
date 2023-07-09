@@ -14,9 +14,9 @@ public class FileAPI {
     private File file;
     private YamlConfiguration yaml;
 
-    public FileAPI(String fileName, Plugin plugin) {
+    public FileAPI(String directory,String fileName, Plugin plugin) {
         try {
-            File tempDir = new File(plugin.getDataFolder().getAbsolutePath());
+            File tempDir = new File(plugin.getDataFolder().getAbsolutePath() + directory);
             if(!tempDir.exists()) {
                 tempDir.mkdirs();
             }
